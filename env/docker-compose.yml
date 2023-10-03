@@ -1,0 +1,37 @@
+version: "3.7"
+volumes:
+  postgres-data:
+    driver: local
+  pgadmin-data:
+    driver: local
+    
+services:
+  postgres:
+    image: postgres:16.0
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=demo_db
+      - PGPASSWORD=postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+  pgadmin:
+    image: dpage/pgadmin4:7.7
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "5050:80"
+    volumes:
+       - pgadmin-data:/var/lib/pgadmin
+       # https://www.jooq.org/sakila
+       # open UI, go to the database, select restore -> and provide the /tmp/dvd-backup/dvdrental.tar path
+       - ./:/tmp/dvd-backup
