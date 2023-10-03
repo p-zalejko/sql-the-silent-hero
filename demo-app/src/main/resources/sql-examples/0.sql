@@ -1,0 +1,32 @@
+-- SQL like a calculator (2+2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT 2+2 as sum;
