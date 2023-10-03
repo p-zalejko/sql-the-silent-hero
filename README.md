@@ -3,6 +3,7 @@
 As we all know very well, Java is the one and only rightful programming language ;)  There's nothing we can't do using Java and the countless tools and frameworks within our ecosystem. However, there's another language that each of us is familiar with, but we might not always be aware of its capabilities. SQL has been with us for almost 50 years, so let's see what it has to offer in conjunction with modern databases. We'll explore how it works, what we can achieve with it, and whether there's anything we could "delegate" from Java to SQL.
 
 
+--
 
 (PL) SQL - cichy bohater
 
