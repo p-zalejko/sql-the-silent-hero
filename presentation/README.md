@@ -1,3 +1,3 @@
-# gitops-talks
+# Templae
 
-Slides for talks on GitOps. https://github.com/cloudogu/gitops-talks
+Taken from https://github.com/cloudogu/gitops-talks
