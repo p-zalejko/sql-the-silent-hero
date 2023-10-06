@@ -142,11 +142,67 @@ the question is:
 
 <!-- .slide: style="text-align: center !important;"  -->
 
+# *<a href="https://blog.jooq.org/a-beginners-guide-to-the-true-order-of-sql-operations/">The SQL language is very intuitive. Until it isn’t.</a>*
+
+Lukas Eder,  creator of JOOQ
+
+
+
+
+<!-- .slide: style="text-align: center !important;"  -->
+
+# Example #1
+
+```SQL
+-- Wrong
+SELECT first_name, count(*)
+FROM customer
+WHERE count(*) > 1
+GROUP BY first_name
+ 
+-- Correct
+SELECT first_name, count(*)
+FROM customer
+GROUP BY first_name
+HAVING count(*) > 1
+```
+
+
+
+<!-- .slide: style="text-align: center !important;"  -->
+
+# Example #2
+
+```SQL
+-- Correct
+SELECT first_name, count(*)
+FROM customer
+GROUP BY first_name
+ORDER BY count(*) DESC
+ 
+-- Wrong
+SELECT first_name, last_name, count(*)
+FROM customer
+GROUP BY first_name
+```
+
+
+
+
+<!-- .slide: style="text-align: center !important;"  -->
+
 # SQL Execution Order 
 
 <img src="images/sql_order.png" height="500"/>
 
 <a href="https://dev.to/kanani_nirav/secret-to-optimizing-sql-queries-understand-the-sql-execution-order-28m1">source</a>
+
+
+NOTE:
+* aggregation after group by
+* DISTINC after SELECT (even if put before in the syntax)
+* LIMIT, TOP at the end, after order by
+
 
 
 
