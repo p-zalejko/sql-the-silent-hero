@@ -1,4 +1,5 @@
 -- imagine we have a complex query (many joins, aggregations etc.)
+-- we don't want to call it with different parameters so using prepared statements isn't the way to go...
 
 -- just a query
 SELECT
