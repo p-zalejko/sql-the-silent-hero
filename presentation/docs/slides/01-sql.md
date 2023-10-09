@@ -206,6 +206,22 @@ NOTE:
 
 
 
+
+<!-- .slide: style="text-align: center !important;"  -->
+
+# From a plain text to results...
+
+
+ 
+
+- **Parser** -> syntax checks
+- **Rewrite** -> applies *rules*
+- **Planner/Opyimizer** -> creates the execution plan
+- **Executor** -> executes the query
+
+
+
+
 <!-- .slide: style="text-align: center !important;"  -->
 
 # Query execution planner
