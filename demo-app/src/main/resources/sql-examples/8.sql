@@ -25,6 +25,7 @@ CREATE VIEW film_category_count_view AS
     ORDER BY how_many DESC;
 
 SELECT * from film_category_count_view;
+-- EXPLAIN (ANALYSE ) SELECT * from film_category_count_view;
 
 
 
@@ -47,6 +48,7 @@ CREATE MATERIALIZED VIEW film_category_count_mw  AS
 
 -- get data from the materialized view
 SELECT * FROM  film_category_count_mw;
+-- EXPLAIN (ANALYSE ) SELECT * FROM  film_category_count_mw;
 
 -- an index on the view
 CREATE UNIQUE INDEX film_name_idx
