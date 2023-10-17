@@ -56,6 +56,30 @@ source:
 
 
 
+
+# Comparing to ...
+
+- ...
+- **1959** - COBOL
+- ...
+- **1970-1979** - SEQUEL/SQL
+- ...
+- **1995** - Java
+- ...
+
+<!-- .slide: style="text-align: center !important;"  -->
+
+
+
+## Will SQL be the next COBOL?
+
+<!-- .slide: style="text-align: center !important;"  -->
+
+ <img src="images/cobol.png"/>
+
+
+
+
 # SQL - How it's going
 
 
