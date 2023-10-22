@@ -1,5 +1,5 @@
 -- imagine we have a complex query (many joins, aggregations etc.)
--- we don't want to call it with different parameters so using prepared statements isn't the way to go...
+-- we don't want to call it with different parameters so using prepared statements isn't an option here...
 
 -- just a query
 SELECT
@@ -36,7 +36,8 @@ SELECT * from film_category_count_view;
 -- materialized view
 DROP MATERIALIZED VIEW IF EXISTS film_category_count_mw;
 
-CREATE MATERIALIZED VIEW film_category_count_mw  AS
+CREATE MATERIALIZED VIEW film_category_count_mw
+AS
     SELECT
         category.category_id,
         category.name,
@@ -44,9 +45,9 @@ CREATE MATERIALIZED VIEW film_category_count_mw  AS
     FROM film_category
              JOIN category USING (category_id)
     GROUP BY category.category_id
-    ORDER BY how_many DESC;
+    ORDER BY how_many DESC
+WITH NO DATA;
 
--- get data from the materialized view
 SELECT * FROM  film_category_count_mw;
 -- EXPLAIN (ANALYSE ) SELECT * FROM  film_category_count_mw;
 
@@ -58,7 +59,9 @@ CREATE UNIQUE INDEX film_name_idx
 REFRESH MATERIALIZED VIEW film_category_count_mw;
 
 
+
 -- view vs materialized view
 --- on-the-fly vs persisted
 --- up-to-date vs not up-to-date
 --- indexes
+--- can cause performance problems

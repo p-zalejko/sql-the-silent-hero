@@ -1,15 +1,15 @@
--- RANK
--- https://learnsql.com/blog/25-advanced-sql-query-examples/
-
+-- RANK and DENSE_RANK
 
 SELECT customer_id,
        amount,
        RANK() OVER (ORDER BY amount DESC) as ranking
 FROM public.payment ORDER BY ranking;
 
+SELECT customer_id,
+       amount,
+       DENSE_RANK() OVER (ORDER BY amount DESC) as ranking
+FROM public.payment ORDER BY ranking;
 
--- here we can use 'ranking` in WHERE
--- The WITH clause in the previous query creates a CTE called, which is a kind of virtual table that’s consumed in the main query.
 WITH byRanking AS
          (
              SELECT 
@@ -19,4 +19,4 @@ WITH byRanking AS
             FROM public.payment ORDER BY ranking
          )
 
-SELECT * from byRanking WHERE ranking < 100;
+SELECT * from byRanking WHERE ranking = 1;

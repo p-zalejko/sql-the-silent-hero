@@ -21,8 +21,6 @@ PREPARE findByCategory (text) AS
 EXECUTE findByCategory('Comedy');
 EXECUTE findByCategory('Sci-Fi');
 
--- generic plan vs custom plan
-
 EXPLAIN (ANALYSE ) EXECUTE findByCategory('Documentary');
 
 EXPLAIN (ANALYSE )SELECT
@@ -33,7 +31,12 @@ EXPLAIN (ANALYSE )SELECT
 FROM film_category
     JOIN category USING (category_id)
     JOIN film USING (film_id)
-    WHERE name = 'Documentary'
+    WHERE category.name = 'Documentary'
 
 
 
+
+
+
+
+-- generic plan vs custom plan
