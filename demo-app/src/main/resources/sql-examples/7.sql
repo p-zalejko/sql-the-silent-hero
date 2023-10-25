@@ -1,3 +1,5 @@
+-- imagine, we have to call one and the same query many times...
+
 -- prepared statements
 
 -- When the PREPARE statement is executed, the specified statement is parsed, analyzed, and rewritten

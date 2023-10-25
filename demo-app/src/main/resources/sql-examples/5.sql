@@ -4,20 +4,20 @@ SELECT
     customer_id,
     amount,
     payment_date
-FROM public.payment WHERE  customer_id = 1;
+FROM payment WHERE  customer_id = 1;
 
 SELECT
     customer_id,
     amount,
-    payment_date,
-    SUM(amount) OVER(partition by customer_id)
-FROM public.payment ORDER BY customer_id ASC
+    SUM(amount) OVER(partition by customer_id),
+    payment_date
+FROM payment ORDER BY customer_id ASC;
 
 
 SELECT customer_id,
        amount,
-       to_char(payment_date, 'DD Mon YYYY'),
-       SUM(amount) OVER(partition by customer_id ORDER By payment_date)
+       SUM(amount) OVER(partition by customer_id ORDER By payment_date),
+       to_char(payment_date, 'DD Mon YYYY')
 FROM public.payment ORDER BY customer_id ASC
 
 

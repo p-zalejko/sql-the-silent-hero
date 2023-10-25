@@ -34,7 +34,7 @@ SELECT * from film_category_count_view;
 
 
 -- materialized view
-DROP MATERIALIZED VIEW IF EXISTS film_category_count_mw;
+-- DROP MATERIALIZED VIEW IF EXISTS film_category_count_mw;
 
 CREATE MATERIALIZED VIEW film_category_count_mw
 AS
@@ -48,6 +48,9 @@ AS
     ORDER BY how_many DESC
 WITH NO DATA;
 
+-- reload data
+-- REFRESH MATERIALIZED VIEW film_category_count_mw;
+
 SELECT * FROM  film_category_count_mw;
 -- EXPLAIN (ANALYSE ) SELECT * FROM  film_category_count_mw;
 
@@ -55,8 +58,7 @@ SELECT * FROM  film_category_count_mw;
 CREATE UNIQUE INDEX film_name_idx
     ON film_category_count_mw (name);
 
--- reload data
-REFRESH MATERIALIZED VIEW film_category_count_mw;
+
 
 
 
