@@ -14,8 +14,6 @@ Jak wszyscy bardzo dobrze wiemy, Java to jedyny i słuszny język programowania.
 # Slides
 
 ```
-
 cd docs
 ./startPresentation.sh
-
 ```
